@@ -1,26 +1,29 @@
-import { useRef } from 'react';
 import type { CSSProperties, HTMLAttributes } from 'react';
-import { useAutoHeight } from './useAutoHeight';
 
 export interface CollapsibleProps extends HTMLAttributes<HTMLDivElement> {
   open: boolean;
   duration?: number;
+  easing?: string;
 }
 
-export function Collapsible({ open, duration = 300, style, children, ...rest }: CollapsibleProps) {
-  const innerRef = useRef<HTMLDivElement>(null);
-  const height = useAutoHeight(innerRef, [children]);
-
+export function Collapsible({
+  open,
+  duration = 300,
+  easing = 'ease',
+  style,
+  children,
+  ...rest
+}: CollapsibleProps) {
   const containerStyle: CSSProperties = {
-    height: open ? height : 0,
-    overflow: 'hidden',
-    transition: `height ${duration}ms ease`,
+    display: 'grid',
+    gridTemplateRows: open ? '1fr' : '0fr',
+    transition: `grid-template-rows ${duration}ms ${easing}`,
     ...style,
   };
 
   return (
     <div style={containerStyle} {...rest}>
-      <div ref={innerRef}>{children}</div>
+      <div style={{ minHeight: 0, overflow: 'hidden' }}>{children}</div>
     </div>
   );
 }
