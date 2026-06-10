@@ -1,19 +1,28 @@
+import { forwardRef } from 'react';
 import type { CSSProperties, HTMLAttributes } from 'react';
 
 export interface CollapsibleProps extends HTMLAttributes<HTMLDivElement> {
   open: boolean;
   duration?: number;
   easing?: string;
+  innerClassName?: string;
+  innerStyle?: CSSProperties;
 }
 
-export function Collapsible({
-  open,
-  duration = 300,
-  easing = 'ease',
-  style,
-  children,
-  ...rest
-}: CollapsibleProps) {
+export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(function Collapsible(
+  {
+    open,
+    duration = 300,
+    easing = 'ease',
+    innerClassName,
+    innerStyle,
+    className,
+    style,
+    children,
+    ...rest
+  },
+  ref,
+) {
   const containerStyle: CSSProperties = {
     display: 'grid',
     gridTemplateRows: open ? '1fr' : '0fr',
@@ -22,8 +31,14 @@ export function Collapsible({
   };
 
   return (
-    <div style={containerStyle} {...rest}>
-      <div style={{ minHeight: 0, overflow: 'hidden' }}>{children}</div>
+    <div ref={ref} className={className} style={containerStyle} {...rest}>
+      <div style={{ minHeight: 0, overflow: 'hidden' }}>
+        <div className={innerClassName} style={innerStyle}>
+          {children}
+        </div>
+      </div>
     </div>
   );
-}
+});
+
+Collapsible.displayName = 'Collapsible';
