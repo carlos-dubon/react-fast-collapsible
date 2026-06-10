@@ -1,0 +1,10 @@
+{
+  "name": "react-fast-collapsible-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter react-fast-collapsible build"
+  },
+  "packageManager": "pnpm@10.32.1"
+}
