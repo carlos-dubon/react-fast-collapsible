@@ -37,9 +37,11 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(function
     ...style,
   };
 
+  const closedProps: { inert?: boolean } = open ? {} : { inert: true };
+
   return (
     <div ref={ref} className={className} style={containerStyle} {...rest}>
-      <div style={{ minHeight: 0, overflow: 'hidden' }}>
+      <div style={{ minHeight: 0, overflow: 'hidden' }} {...closedProps}>
         <div className={innerClassName} style={innerStyle}>
           {children}
         </div>
