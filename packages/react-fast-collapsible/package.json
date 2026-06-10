@@ -1,0 +1,25 @@
+{
+  "name": "react-fast-collapsible",
+  "version": "0.0.0",
+  "description": "A tiny, dependency-free React collapsible.",
+  "license": "MIT",
+  "author": "Carlos Dubon <holacarlosdubon@gmail.com>",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "react": "19.2.7",
+    "tsdown": "0.22.2",
+    "typescript": "6.0.3"
+  }
+}
