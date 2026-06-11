@@ -9,7 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+
+const easings = ["ease", "ease-in-out", "ease-out", "linear"];
 
 const checks = [
   "No scrollHeight reads",
@@ -19,6 +31,9 @@ const checks = [
 
 export function App() {
   const [open, setOpen] = useState(true);
+  const [duration, setDuration] = useState(300);
+  const [easing, setEasing] = useState("ease");
+  const [animateOpacity, setAnimateOpacity] = useState(true);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -36,7 +51,9 @@ export function App() {
           <CardHeader className="items-center justify-between">
             <div className="grid gap-1.5">
               <CardTitle>Playground</CardTitle>
-              <CardDescription>Toggle the panel.</CardDescription>
+              <CardDescription>
+                Toggle the panel and tune the transition.
+              </CardDescription>
             </div>
             <Button
               variant={open ? "secondary" : "default"}
@@ -55,7 +72,10 @@ export function App() {
           <CardContent>
             <Collapsible
               open={open}
-              innerClassName="rounded-lg border bg-muted/40 p-4"
+              duration={duration}
+              easing={easing}
+              animateOpacity={animateOpacity}
+              innerClassName="rounded-lg border bg-muted/40 p-4 mb-6"
             >
               <h3 className="text-sm font-medium">Content of any height</h3>
               <p className="mt-1.5 text-sm text-muted-foreground">
@@ -75,6 +95,54 @@ export function App() {
                 ))}
               </ul>
             </Collapsible>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-3">
+                <div className="flex items-center justify-between">
+                  <Label>Duration</Label>
+                  <span className="font-mono text-xs tabular-nums text-muted-foreground">
+                    {duration}ms
+                  </span>
+                </div>
+                <Slider
+                  value={duration}
+                  min={100}
+                  max={1200}
+                  step={50}
+                  onValueChange={(value) => setDuration(value as number)}
+                />
+              </div>
+              <div className="grid gap-3">
+                <Label>Easing</Label>
+                <Select
+                  value={easing}
+                  onValueChange={(value) => setEasing(value as string)}
+                >
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {easings.map((e) => (
+                      <SelectItem key={e} value={e}>
+                        {e}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex items-center justify-between sm:col-span-2">
+                <div className="grid gap-1">
+                  <Label>Fade opacity</Label>
+                  <span className="text-xs text-muted-foreground">
+                    Animate opacity alongside height.
+                  </span>
+                </div>
+                <Switch
+                  checked={animateOpacity}
+                  onCheckedChange={setAnimateOpacity}
+                />
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
