@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "react-fast-collapsible": ["../../packages/react-fast-collapsible/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}
