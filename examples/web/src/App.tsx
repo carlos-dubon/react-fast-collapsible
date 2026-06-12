@@ -65,7 +65,7 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
+      <div className="mx-auto max-w-2xl px-4 sm:px-6 py-16 sm:py-24">
         <header className="flex flex-col items-center text-center">
           <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">
             react-fast-collapsible
