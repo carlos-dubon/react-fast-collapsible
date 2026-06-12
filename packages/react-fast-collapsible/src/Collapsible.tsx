@@ -10,6 +10,8 @@ export interface CollapsibleProps extends HTMLAttributes<HTMLDivElement> {
   innerStyle?: CSSProperties;
 }
 
+const clipStyle: CSSProperties = { minHeight: 0, overflow: 'hidden' };
+
 export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(function Collapsible(
   {
     open,
@@ -41,7 +43,7 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(function
 
   return (
     <div ref={ref} className={className} style={containerStyle} {...rest}>
-      <div style={{ minHeight: 0, overflow: 'hidden' }} {...closedProps}>
+      <div style={clipStyle} {...closedProps}>
         <div className={innerClassName} style={innerStyle}>
           {children}
         </div>
