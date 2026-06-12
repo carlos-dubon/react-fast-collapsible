@@ -1,13 +1,26 @@
 {
   "name": "react-fast-collapsible-monorepo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Monorepo for react-fast-collapsible — a pure-CSS, zero-dependency React collapsible.",
+  "license": "MIT",
+  "author": "Carlos Dubon <holacarlosdubon@gmail.com>",
+  "homepage": "https://github.com/carlos-dubon/react-fast-collapsible#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos-dubon/react-fast-collapsible.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter @example/web dev",
     "build": "pnpm --filter react-fast-collapsible build",
     "build:example": "pnpm --filter @example/web build",
-    "preview": "pnpm --filter @example/web preview"
+    "preview": "pnpm --filter @example/web preview",
+    "typecheck": "pnpm -r typecheck",
+    "release": "pnpm --filter react-fast-collapsible publish"
   },
-  "packageManager": "pnpm@10.32.1"
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=18"
+  }
 }

@@ -1,9 +1,30 @@
 {
   "name": "react-fast-collapsible",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A tiny, dependency-free React collapsible that animates to auto height with pure CSS (grid 0fr→1fr) — no JavaScript height measurement, no forced reflows.",
+  "keywords": [
+    "react",
+    "collapsible",
+    "collapse",
+    "accordion",
+    "expand",
+    "animation",
+    "css-grid",
+    "height-auto",
+    "no-reflow",
+    "zero-dependencies"
+  ],
   "license": "MIT",
   "author": "Carlos Dubon <holacarlosdubon@gmail.com>",
+  "homepage": "https://github.com/carlos-dubon/react-fast-collapsible#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos-dubon/react-fast-collapsible.git",
+    "directory": "packages/react-fast-collapsible"
+  },
+  "bugs": {
+    "url": "https://github.com/carlos-dubon/react-fast-collapsible/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.cjs",
@@ -41,5 +62,8 @@
     "react": "19.2.7",
     "tsdown": "0.22.2",
     "typescript": "6.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
