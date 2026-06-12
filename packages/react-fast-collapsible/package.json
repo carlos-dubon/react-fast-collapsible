@@ -30,7 +30,8 @@
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepack": "tsdown && node ../../scripts/copy-readme.mjs"
   },
   "peerDependencies": {
     "react": ">=17.0.0"
