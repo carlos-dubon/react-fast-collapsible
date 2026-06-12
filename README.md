@@ -150,6 +150,19 @@ The rendered markup is three nested elements:
 
 When `open` is `false`, the content wrapper receives the [`inert`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert) attribute, so collapsed content cannot be focused, clicked, or read by assistive technology — and it stays out of the tab order — with no JS focus management and no reflow.
 
+## react-fast-collapsible vs react-collapsible
+
+|                              | react-fast-collapsible    | react-collapsible          |
+| ---------------------------- | ------------------------- | -------------------------- |
+| Height animation             | CSS grid (browser-native) | JS measures `scrollHeight` |
+| Forced reflow on toggle      | **No**                    | Yes                        |
+| Runtime dependencies         | **0**                     | a few                      |
+| Dynamic-height content       | automatic                 | needs re-measure           |
+| Bundle size                  | **< 1 kB**                | larger                     |
+| Built-in trigger / accordion | bring your own            | included                   |
+
+`react-collapsible` bundles a trigger element and more out-of-the-box behavior; `react-fast-collapsible` is intentionally a minimal, unopinionated primitive that you wire to your own trigger and state.
+
 ## Browser support
 
 All modern evergreen browsers. The animation relies on animatable `grid-template-rows` (Chrome 107+, Firefox 66+, Safari 16+) and the `inert` attribute (Baseline since 2023). In older browsers it degrades gracefully — the panel still opens and closes, just without the smooth tween / inert behavior.
