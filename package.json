@@ -1,6 +1,6 @@
 {
   "name": "react-fast-collapsible",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny, dependency-free React collapsible that animates to auto height with pure CSS (grid 0fr→1fr) — no JavaScript height measurement, no forced reflows.",
   "keywords": [
     "react",
