@@ -139,10 +139,10 @@ export function App() {
             </Collapsible>
 
             <div className="grid gap-5 sm:grid-cols-2">
-              <div className="grid gap-3">
+              <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
                   <Label>Duration</Label>
-                  <span className="font-mono text-xs tabular-nums text-muted-foreground">
+                  <span className="font-mono text-xs h-3.5 text-muted-foreground">
                     {duration}ms
                   </span>
                 </div>
