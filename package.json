@@ -1,6 +1,6 @@
 {
   "name": "react-fast-collapsible-monorepo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Monorepo for react-fast-collapsible — a pure-CSS, zero-dependency React collapsible.",
   "license": "MIT",
