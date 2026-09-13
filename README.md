@@ -34,6 +34,19 @@ npm i react-fast-collapsible
 </Collapsible>
 ```
 
+## Props
+
+| Prop             | Type            | Default      | What it does                                        |
+| ---------------- | --------------- | ------------ | --------------------------------------------------- |
+| `open`           | `boolean`       | **required** | Expands when `true`, collapses when `false`.        |
+| `duration`       | `number`        | `300`        | Length of the animation, in ms.                     |
+| `easing`         | `string`        | `"ease"`     | CSS timing function for the transition.             |
+| `animateOpacity` | `boolean`       | `true`       | Fades the content in and out along with the height. |
+| `innerClassName` | `string`        | —            | Class for the content wrapper. Put padding here.    |
+| `innerStyle`     | `CSSProperties` | —            | Style for the content wrapper.                      |
+| `className`      | `string`        | —            | Class for the outer container.                      |
+| `style`          | `CSSProperties` | —            | Style for the outer container.                      |
+
 ## License
 
 [MIT](./LICENSE)
